@@ -1,0 +1,26 @@
+@APIDemoApp_HostAddress = http://localhost:5159/api/todo
+
+# GET {{APIDemoApp_HostAddress}}/
+Accept: application/json
+
+###
+
+
+### POST - Create Another Todo
+# POST {{APIDemoApp_HostAddress}}
+# Content-Type: application/json
+
+# {
+#   "title": "/WATER PLANTS",
+#   "description": "DO IT",
+#   "isCompleted": false
+# }
+
+#Get Todo by ID
+# GET {{APIDemoApp_HostAddress}}/1
+
+#Get - Get All Todos
+GET {{APIDemoApp_HostAddress}}
+
+
+
