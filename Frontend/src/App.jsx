@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
-import './App.css'
+import '../sass/App.scss'
+import AddTodo from './AddTodo';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function App() {
   const [title, setTitle]=useState("");
   const [input, setInput]=useState("");
   const [todos, setTodos]=useState([]);
+  const [enableForm, setEnableForm]=useState(false);
 
   const API_URL = 'http://localhost:5159/api/todo';
 
@@ -15,7 +18,7 @@ function App() {
   },[])
 
   function addTodo(){
-    if(input.trim()){
+    if(title.trim()){
       fetch(`${API_URL}`,{
         method:'POST',
         headers:{'Content-Type':'application/json'},
@@ -25,6 +28,7 @@ function App() {
       .then(data => setTodos([...todos, data]))
       setInput('');
       setTitle('');
+      setEnableForm(false);
     }
   }
 
@@ -41,6 +45,16 @@ function App() {
   // ))
 }
 
+  function EditTodo(id){
+    fetch(`${API_URL}/${id}`,{
+      method:'PATCH',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({IsCompleted:false})
+    })
+    .then(res=>res.json())
+    .then(()=>setTodos(todos.map(todo => todo.id === id ? {...todo, isCompleted: false} : todo)))
+}
+
   function deleteTodo(id){
     fetch(`${API_URL}/${id}`, {method: 'DELETE'})
     .then(() => setTodos(todos.filter(todo => todo.id !== id)));
@@ -49,11 +63,24 @@ function App() {
 
   return (
     <>
-    <div className='todoBox' >
-      <h3>Todo List</h3>
-      <input type="text" placeholder='Enter Task Title' value={title} onChange={(e)=>setTitle(e.target.value)} />
-      <input type="text" placeholder='Enter Task Description' value={input} onChange={(e)=>setInput(e.target.value)} />
-      <button onClick={addTodo} >Add</button>
+    <div className='container'>
+      <div className='header'>
+      <span className='header'>Todo List</span>
+      <button onClick={()=>setEnableForm(true)}>Add Todo</button>
+      {enableForm && (
+      <div className="modalOverlay">
+        <div className="modalContent">
+          <AddTodo
+            title={title}
+            setTitle={setTitle}
+            input={input}
+            setInput={setInput}
+            addTodo={addTodo}
+            onClose={() => setEnableForm(false)}
+          />
+          </div>
+        </div>
+)}
     </div>
     <div>
       <h4>My Tasks</h4>
@@ -61,16 +88,21 @@ function App() {
       (todos.filter(todo => !todo.isCompleted).map(todo=>(
         <div key={todo.id} className='todoItem'>
           <span>{todo.title}</span>
-          <button onClick={()=>markDone(todo.id)} >Mark As Done</button>
-          <button onClick={()=>deleteTodo(todo.id)} >Delete</button>
+          <button onClick={()=>markDone(todo.id)} className='mrk-btn' >Mark As Done</button>
+          <button onClick={()=>deleteTodo(todo.id)} className='del-btn' ><i class="bi bi-trash3"></i></button>
         </div>
       )))}
     </div>
     <div>
       <h4>Tasks Completed</h4>
       {todos.filter(todo => todo.isCompleted).map(todo=>(
-    <div key={todo.id}>{todo.title}</div>
+    <div key={todo.id} className='todoItem' >
+      <span>{todo.title}</span>
+      <button onClick={()=>EditTodo(todo.id)} className='mrkun-btn' >Mark as Undone</button>
+      <button onClick={()=>deleteTodo(todo.id)} className='del-btn' ><i class="bi bi-trash3"></i></button>
+    </div>
   ))}
+    </div>
     </div>
     </>
   )
