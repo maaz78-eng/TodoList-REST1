@@ -74,6 +74,24 @@ namespace APIDemoApp.Controllers
             return Ok(existingTodo);
         }
 
+        // PATCH: api/todo/5
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> Patch(int id, [FromBody] Todo todo)
+        {
+            var existingTodo = await _context.Todos.FindAsync(id);
+
+            if (existingTodo == null)
+            {
+                return NotFound(new { message = "Todo not found" });
+            }
+
+            existingTodo.IsCompleted = todo.IsCompleted;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(existingTodo);
+        }
+
         // DELETE: api/todo/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\APIDemoApp\\",
+  "WorkspaceRootPath": "C:\\Users\\Admin\\source\\Todo\\APIDemoApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FE816D50-B4C3-423D-80A4-87978B0ACDAD}|APIDemoApp.csproj|c:\\users\\admin\\source\\repos\\apidemoapp\\models\\todo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FE816D50-B4C3-423D-80A4-87978B0ACDAD}|APIDemoApp.csproj|c:\\users\\admin\\source\\todo\\apidemoapp\\models\\todo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FE816D50-B4C3-423D-80A4-87978B0ACDAD}|APIDemoApp.csproj|solutionrelative:models\\todo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,13 +24,13 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Todo.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\APIDemoApp\\Models\\Todo.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\Todo\\APIDemoApp\\Models\\Todo.cs",
               "RelativeDocumentMoniker": "Models\\Todo.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\APIDemoApp\\Models\\Todo.cs",
-              "RelativeToolTip": "Models\\Todo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Admin\\source\\Todo\\APIDemoApp\\Models\\Todo.cs*",
+              "RelativeToolTip": "Models\\Todo.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-19T07:16:37.76Z",
+              "WhenOpened": "2026-06-22T09:14:27.198Z",
               "EditorCaption": ""
             }
           ]

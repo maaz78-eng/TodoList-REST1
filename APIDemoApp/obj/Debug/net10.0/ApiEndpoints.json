@@ -94,6 +94,27 @@
   },
   {
     "ContainingType": "APIDemoApp.Controllers.TodoController",
+    "Method": "Patch",
+    "RelativePath": "api/Todo/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "todo",
+        "Type": "APIDemoApp.Models.Todo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APIDemoApp.Controllers.TodoController",
     "Method": "Delete",
     "RelativePath": "api/Todo/{id}",
     "HttpMethod": "DELETE",
