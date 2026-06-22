@@ -1,14 +1,16 @@
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.header{
-    font-weight: bold;
-    font-size: larger;
+
+.header {
+  font-weight: bold;
+  font-size: larger;
 }
+
 .container {
-    border: 3px solid violet;
+  border: 3px solid violet;
   border-radius: 20px;
   max-width: 600px;
   margin: 2rem auto;
@@ -57,25 +59,28 @@ button {
   margin-bottom: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 6px;
+
+  span {
+    flex: 1;
+  }
+
+  button {
+    margin-left: 0.5rem;
+  }
+
 }
 
-.todoItem span {
-  flex: 1;
+.del-btn {
+  background-color: red;
+  color: white;
 }
 
-.todoItem button {
-  margin-left: 0.5rem;
+.mrk-btn {
+  background-color: rgb(0, 191, 255);
 }
 
-.del-btn{
-    background-color: red;
-    color: white;
-}
-.mrk-btn{
-    background-color: rgb(0, 191, 255);
-}
-.mrkun-btn{
-    background-color: violet;
+.mrkun-btn {
+  background-color: violet;
 }
 
 h4 {
@@ -86,4 +91,3 @@ h4 {
 p {
   color: #666;
 }
-
