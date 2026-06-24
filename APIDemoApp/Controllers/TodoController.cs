@@ -1,5 +1,6 @@
 ﻿using APIDemoApp.Data;
 using APIDemoApp.Models;
+using APIDemoApp.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,10 +11,14 @@ namespace APIDemoApp.Controllers
     public class TodoController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly BlobService _blobService;
 
-        public TodoController(AppDbContext context)
+        public TodoController(
+            AppDbContext context,
+            BlobService blobService)
         {
             _context = context;
+            _blobService = blobService;
         }
 
         // GET: api/todo

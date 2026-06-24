@@ -1,4 +1,5 @@
 using APIDemoApp.Data;
+using APIDemoApp.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddScoped<BlobService>();
 
 var allowedOrigins = builder.Configuration.GetSection("allowedOrigins").Get<string[]>();
 
